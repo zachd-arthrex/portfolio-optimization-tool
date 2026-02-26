@@ -301,17 +301,17 @@ function App() {
       const saved = localStorage.getItem(COL_WIDTHS_KEY)
       if (saved) {
         const parsed = JSON.parse(saved)
-        return { ...Object.fromEntries(DEFAULT_DISCIPLINES.map((t) => [`fte-${t}`, 58])), actions: 72, id: 40, name: 280, deps: 80, value: 55, duration: 65, ...parsed }
+        return { ...Object.fromEntries(DEFAULT_DISCIPLINES.map((t) => [`fte-${t}`, 85])), actions: 76, id: 91, name: 533, deps: 80, value: 81, duration: 100, ...parsed }
       }
     } catch { /* ignore */ }
-    return { actions: 72, id: 40, name: 280, deps: 80, value: 55, duration: 65, ...Object.fromEntries(DEFAULT_DISCIPLINES.map((t) => [`fte-${t}`, 58])) }
+    return { actions: 76, id: 91, name: 533, deps: 80, value: 81, duration: 100, ...Object.fromEntries(DEFAULT_DISCIPLINES.map((t) => [`fte-${t}`, 85])) }
   })
 
   // Ensure col widths exist for new disciplines
   const effectiveColWidths = useMemo(() => {
     const result = { ...colWidths }
     for (const d of disciplines) {
-      if (result[`fte-${d}`] === undefined) result[`fte-${d}`] = 58
+      if (result[`fte-${d}`] === undefined) result[`fte-${d}`] = 85
     }
     return result
   }, [colWidths, disciplines])
@@ -320,7 +320,7 @@ function App() {
     event.preventDefault()
     event.stopPropagation()
     const startX = event.clientX
-    const startW = effectiveColWidths[col] ?? 58
+    const startW = effectiveColWidths[col] ?? 85
     const onMove = (moveEvent: MouseEvent) => {
       const delta = moveEvent.clientX - startX
       const newWidth = Math.max(30, startW + delta)
