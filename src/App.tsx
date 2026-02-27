@@ -2610,11 +2610,11 @@ function App() {
                             return (
                               <div
                                 key={`${team}-${bucket.bucketStart}`}
-                                className={average > 100 ? 'combined-bar over' : 'combined-bar'}
+                                className="combined-bar"
                                 style={{
                                   width: barWidth,
                                   height: `${Math.max(1, capped)}%`,
-                                  background: average > 100 ? '#d87474' : getDisciplineColor(disciplines, team),
+                                  background: getDisciplineColor(disciplines, team),
                                 }}
                                 title={`${team}: ${average.toFixed(0)}% of capacity`}
                               />
